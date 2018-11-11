@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F22636FD219883D300981385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22636FC219883D300981385 /* AppDelegate.swift */; };
+		F22636FF219883D300981385 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22636FE219883D300981385 /* RankingViewController.swift */; };
+		F2263702219883D300981385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2263700219883D300981385 /* Main.storyboard */; };
+		F2263705219883D300981385 /* DartsNativeAppsII.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2263703219883D300981385 /* DartsNativeAppsII.xcdatamodeld */; };
+		F2263707219883D400981385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2263706219883D400981385 /* Assets.xcassets */; };
+		F226370A219883D400981385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2263708219883D400981385 /* LaunchScreen.storyboard */; };
+		F2263715219883D400981385 /* DartsNativeAppsIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2263714219883D400981385 /* DartsNativeAppsIITests.swift */; };
+		F2263720219883D400981385 /* DartsNativeAppsIIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226371F219883D400981385 /* DartsNativeAppsIIUITests.swift */; };
+		F22637322198867300981385 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637312198867300981385 /* PlayersViewController.swift */; };
+		F22637342198868B00981385 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637332198868B00981385 /* InfoViewController.swift */; };
+		F2263736219887A600981385 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2263735219887A600981385 /* Player.swift */; };
+		F22637382198884400981385 /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637372198884400981385 /* PlayerTableViewController.swift */; };
+		F226373A2198893300981385 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637392198893300981385 /* PlayerTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F2263711219883D400981385 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F22636F1219883D200981385 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F22636F8219883D300981385;
+			remoteInfo = DartsNativeAppsII;
+		};
+		F226371C219883D400981385 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F22636F1219883D200981385 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F22636F8219883D300981385;
+			remoteInfo = DartsNativeAppsII;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F22636F9219883D300981385 /* DartsNativeAppsII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsNativeAppsII.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F22636FC219883D300981385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F22636FE219883D300981385 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		F2263701219883D300981385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F2263704219883D300981385 /* DartsNativeAppsII.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DartsNativeAppsII.xcdatamodel; sourceTree = "<group>"; };
+		F2263706219883D400981385 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2263709219883D400981385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F226370B219883D400981385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2263710219883D400981385 /* DartsNativeAppsIITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartsNativeAppsIITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2263714219883D400981385 /* DartsNativeAppsIITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsNativeAppsIITests.swift; sourceTree = "<group>"; };
+		F2263716219883D400981385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F226371B219883D400981385 /* DartsNativeAppsIIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartsNativeAppsIIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F226371F219883D400981385 /* DartsNativeAppsIIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsNativeAppsIIUITests.swift; sourceTree = "<group>"; };
+		F2263721219883D400981385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F22637312198867300981385 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		F22637332198868B00981385 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		F2263735219887A600981385 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F22637372198884400981385 /* PlayerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
+		F22637392198893300981385 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F22636F6219883D300981385 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F226370D219883D400981385 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2263718219883D400981385 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F22636F0219883D200981385 = {
+			isa = PBXGroup;
+			children = (
+				F22636FB219883D300981385 /* DartsNativeAppsII */,
+				F2263713219883D400981385 /* DartsNativeAppsIITests */,
+				F226371E219883D400981385 /* DartsNativeAppsIIUITests */,
+				F22636FA219883D300981385 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F22636FA219883D300981385 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F22636F9219883D300981385 /* DartsNativeAppsII.app */,
+				F2263710219883D400981385 /* DartsNativeAppsIITests.xctest */,
+				F226371B219883D400981385 /* DartsNativeAppsIIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F22636FB219883D300981385 /* DartsNativeAppsII */ = {
+			isa = PBXGroup;
+			children = (
+				F226372F2198841000981385 /* GUI */,
+				F226372D219883FA00981385 /* Domain */,
+				F22636FC219883D300981385 /* AppDelegate.swift */,
+				F2263700219883D300981385 /* Main.storyboard */,
+				F2263706219883D400981385 /* Assets.xcassets */,
+				F2263708219883D400981385 /* LaunchScreen.storyboard */,
+				F226370B219883D400981385 /* Info.plist */,
+				F2263703219883D300981385 /* DartsNativeAppsII.xcdatamodeld */,
+			);
+			path = DartsNativeAppsII;
+			sourceTree = "<group>";
+		};
+		F2263713219883D400981385 /* DartsNativeAppsIITests */ = {
+			isa = PBXGroup;
+			children = (
+				F2263714219883D400981385 /* DartsNativeAppsIITests.swift */,
+				F2263716219883D400981385 /* Info.plist */,
+			);
+			path = DartsNativeAppsIITests;
+			sourceTree = "<group>";
+		};
+		F226371E219883D400981385 /* DartsNativeAppsIIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F226371F219883D400981385 /* DartsNativeAppsIIUITests.swift */,
+				F2263721219883D400981385 /* Info.plist */,
+			);
+			path = DartsNativeAppsIIUITests;
+			sourceTree = "<group>";
+		};
+		F226372D219883FA00981385 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F2263735219887A600981385 /* Player.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F226372F2198841000981385 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				F22637392198893300981385 /* PlayerTableViewCell.swift */,
+				F22637302198842C00981385 /* ViewControllers */,
+			);
+			path = GUI;
+			sourceTree = "<group>";
+		};
+		F22637302198842C00981385 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F22637372198884400981385 /* PlayerTableViewController.swift */,
+				F22636FE219883D300981385 /* RankingViewController.swift */,
+				F22637312198867300981385 /* PlayersViewController.swift */,
+				F22637332198868B00981385 /* InfoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F22636F8219883D300981385 /* DartsNativeAppsII */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2263724219883D400981385 /* Build configuration list for PBXNativeTarget "DartsNativeAppsII" */;
+			buildPhases = (
+				F22636F5219883D300981385 /* Sources */,
+				F22636F6219883D300981385 /* Frameworks */,
+				F22636F7219883D300981385 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DartsNativeAppsII;
+			productName = DartsNativeAppsII;
+			productReference = F22636F9219883D300981385 /* DartsNativeAppsII.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F226370F219883D400981385 /* DartsNativeAppsIITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2263727219883D400981385 /* Build configuration list for PBXNativeTarget "DartsNativeAppsIITests" */;
+			buildPhases = (
+				F226370C219883D400981385 /* Sources */,
+				F226370D219883D400981385 /* Frameworks */,
+				F226370E219883D400981385 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2263712219883D400981385 /* PBXTargetDependency */,
+			);
+			name = DartsNativeAppsIITests;
+			productName = DartsNativeAppsIITests;
+			productReference = F2263710219883D400981385 /* DartsNativeAppsIITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F226371A219883D400981385 /* DartsNativeAppsIIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F226372A219883D400981385 /* Build configuration list for PBXNativeTarget "DartsNativeAppsIIUITests" */;
+			buildPhases = (
+				F2263717219883D400981385 /* Sources */,
+				F2263718219883D400981385 /* Frameworks */,
+				F2263719219883D400981385 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F226371D219883D400981385 /* PBXTargetDependency */,
+			);
+			name = DartsNativeAppsIIUITests;
+			productName = DartsNativeAppsIIUITests;
+			productReference = F226371B219883D400981385 /* DartsNativeAppsIIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F22636F1219883D200981385 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Yves;
+				TargetAttributes = {
+					F22636F8219883D300981385 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					F226370F219883D400981385 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = F22636F8219883D300981385;
+					};
+					F226371A219883D400981385 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = F22636F8219883D300981385;
+					};
+				};
+			};
+			buildConfigurationList = F22636F4219883D200981385 /* Build configuration list for PBXProject "DartsNativeAppsII" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F22636F0219883D200981385;
+			productRefGroup = F22636FA219883D300981385 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F22636F8219883D300981385 /* DartsNativeAppsII */,
+				F226370F219883D400981385 /* DartsNativeAppsIITests */,
+				F226371A219883D400981385 /* DartsNativeAppsIIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F22636F7219883D300981385 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F226370A219883D400981385 /* LaunchScreen.storyboard in Resources */,
+				F2263707219883D400981385 /* Assets.xcassets in Resources */,
+				F2263702219883D300981385 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F226370E219883D400981385 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2263719219883D400981385 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F22636F5219883D300981385 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F22637382198884400981385 /* PlayerTableViewController.swift in Sources */,
+				F2263705219883D300981385 /* DartsNativeAppsII.xcdatamodeld in Sources */,
+				F22637322198867300981385 /* PlayersViewController.swift in Sources */,
+				F22636FF219883D300981385 /* RankingViewController.swift in Sources */,
+				F226373A2198893300981385 /* PlayerTableViewCell.swift in Sources */,
+				F22636FD219883D300981385 /* AppDelegate.swift in Sources */,
+				F2263736219887A600981385 /* Player.swift in Sources */,
+				F22637342198868B00981385 /* InfoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F226370C219883D400981385 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2263715219883D400981385 /* DartsNativeAppsIITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2263717219883D400981385 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2263720219883D400981385 /* DartsNativeAppsIIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2263712219883D400981385 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F22636F8219883D300981385 /* DartsNativeAppsII */;
+			targetProxy = F2263711219883D400981385 /* PBXContainerItemProxy */;
+		};
+		F226371D219883D400981385 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F22636F8219883D300981385 /* DartsNativeAppsII */;
+			targetProxy = F226371C219883D400981385 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F2263700219883D300981385 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2263701219883D300981385 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F2263708219883D400981385 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2263709219883D400981385 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F2263722219883D400981385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F2263723219883D400981385 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2263725219883D400981385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLVL5W7ZA9;
+				INFOPLIST_FILE = DartsNativeAppsII/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yvesv.DartsNativeAppsII;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2263726219883D400981385 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLVL5W7ZA9;
+				INFOPLIST_FILE = DartsNativeAppsII/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yvesv.DartsNativeAppsII;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F2263728219883D400981385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLVL5W7ZA9;
+				INFOPLIST_FILE = DartsNativeAppsIITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yvesv.DartsNativeAppsIITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartsNativeAppsII.app/DartsNativeAppsII";
+			};
+			name = Debug;
+		};
+		F2263729219883D400981385 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLVL5W7ZA9;
+				INFOPLIST_FILE = DartsNativeAppsIITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yvesv.DartsNativeAppsIITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartsNativeAppsII.app/DartsNativeAppsII";
+			};
+			name = Release;
+		};
+		F226372B219883D400981385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLVL5W7ZA9;
+				INFOPLIST_FILE = DartsNativeAppsIIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yvesv.DartsNativeAppsIIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DartsNativeAppsII;
+			};
+			name = Debug;
+		};
+		F226372C219883D400981385 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLVL5W7ZA9;
+				INFOPLIST_FILE = DartsNativeAppsIIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yvesv.DartsNativeAppsIIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DartsNativeAppsII;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F22636F4219883D200981385 /* Build configuration list for PBXProject "DartsNativeAppsII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2263722219883D400981385 /* Debug */,
+				F2263723219883D400981385 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2263724219883D400981385 /* Build configuration list for PBXNativeTarget "DartsNativeAppsII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2263725219883D400981385 /* Debug */,
+				F2263726219883D400981385 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2263727219883D400981385 /* Build configuration list for PBXNativeTarget "DartsNativeAppsIITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2263728219883D400981385 /* Debug */,
+				F2263729219883D400981385 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F226372A219883D400981385 /* Build configuration list for PBXNativeTarget "DartsNativeAppsIIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F226372B219883D400981385 /* Debug */,
+				F226372C219883D400981385 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F2263703219883D300981385 /* DartsNativeAppsII.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F2263704219883D300981385 /* DartsNativeAppsII.xcdatamodel */,
+			);
+			currentVersion = F2263704219883D300981385 /* DartsNativeAppsII.xcdatamodel */;
+			path = DartsNativeAppsII.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F22636F1219883D200981385 /* Project object */;
+}
