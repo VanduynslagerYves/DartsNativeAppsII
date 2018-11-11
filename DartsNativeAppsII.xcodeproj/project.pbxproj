@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		F22636FD219883D300981385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22636FC219883D300981385 /* AppDelegate.swift */; };
-		F22636FF219883D300981385 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22636FE219883D300981385 /* RankingViewController.swift */; };
+		F22636FF219883D300981385 /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22636FE219883D300981385 /* PlayerTableViewController.swift */; };
 		F2263702219883D300981385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2263700219883D300981385 /* Main.storyboard */; };
 		F2263705219883D300981385 /* DartsNativeAppsII.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2263703219883D300981385 /* DartsNativeAppsII.xcdatamodeld */; };
 		F2263707219883D400981385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2263706219883D400981385 /* Assets.xcassets */; };
 		F226370A219883D400981385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2263708219883D400981385 /* LaunchScreen.storyboard */; };
 		F2263715219883D400981385 /* DartsNativeAppsIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2263714219883D400981385 /* DartsNativeAppsIITests.swift */; };
 		F2263720219883D400981385 /* DartsNativeAppsIIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226371F219883D400981385 /* DartsNativeAppsIIUITests.swift */; };
-		F22637322198867300981385 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637312198867300981385 /* PlayersViewController.swift */; };
+		F22637322198867300981385 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637312198867300981385 /* PlayerDetailViewController.swift */; };
 		F22637342198868B00981385 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637332198868B00981385 /* InfoViewController.swift */; };
 		F2263736219887A600981385 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2263735219887A600981385 /* Player.swift */; };
-		F22637382198884400981385 /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637372198884400981385 /* PlayerTableViewController.swift */; };
-		F226373A2198893300981385 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637392198893300981385 /* PlayerTableViewCell.swift */; };
+		F22637382198884400981385 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637372198884400981385 /* RankingTableViewController.swift */; };
+		F226373A2198893300981385 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637392198893300981385 /* RankingTableViewCell.swift */; };
+		F282A7542198B2320066C540 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282A7532198B2320066C540 /* PlayerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 /* Begin PBXFileReference section */
 		F22636F9219883D300981385 /* DartsNativeAppsII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartsNativeAppsII.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22636FC219883D300981385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F22636FE219883D300981385 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		F22636FE219883D300981385 /* PlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
 		F2263701219883D300981385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2263704219883D300981385 /* DartsNativeAppsII.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DartsNativeAppsII.xcdatamodel; sourceTree = "<group>"; };
 		F2263706219883D400981385 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,11 +55,12 @@
 		F226371B219883D400981385 /* DartsNativeAppsIIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartsNativeAppsIIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F226371F219883D400981385 /* DartsNativeAppsIIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartsNativeAppsIIUITests.swift; sourceTree = "<group>"; };
 		F2263721219883D400981385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F22637312198867300981385 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		F22637312198867300981385 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		F22637332198868B00981385 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		F2263735219887A600981385 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		F22637372198884400981385 /* PlayerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
-		F22637392198893300981385 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		F22637372198884400981385 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
+		F22637392198893300981385 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		F282A7532198B2320066C540 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +152,8 @@
 		F226372F2198841000981385 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
-				F22637392198893300981385 /* PlayerTableViewCell.swift */,
+				F282A7532198B2320066C540 /* PlayerTableViewCell.swift */,
+				F22637392198893300981385 /* RankingTableViewCell.swift */,
 				F22637302198842C00981385 /* ViewControllers */,
 			);
 			path = GUI;
@@ -159,9 +162,9 @@
 		F22637302198842C00981385 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F22637372198884400981385 /* PlayerTableViewController.swift */,
-				F22636FE219883D300981385 /* RankingViewController.swift */,
-				F22637312198867300981385 /* PlayersViewController.swift */,
+				F22637372198884400981385 /* RankingTableViewController.swift */,
+				F22636FE219883D300981385 /* PlayerTableViewController.swift */,
+				F22637312198867300981385 /* PlayerDetailViewController.swift */,
 				F22637332198868B00981385 /* InfoViewController.swift */,
 			);
 			path = ViewControllers;
@@ -298,12 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F22637382198884400981385 /* PlayerTableViewController.swift in Sources */,
+				F22637382198884400981385 /* RankingTableViewController.swift in Sources */,
 				F2263705219883D300981385 /* DartsNativeAppsII.xcdatamodeld in Sources */,
-				F22637322198867300981385 /* PlayersViewController.swift in Sources */,
-				F22636FF219883D300981385 /* RankingViewController.swift in Sources */,
-				F226373A2198893300981385 /* PlayerTableViewCell.swift in Sources */,
+				F22637322198867300981385 /* PlayerDetailViewController.swift in Sources */,
+				F22636FF219883D300981385 /* PlayerTableViewController.swift in Sources */,
+				F226373A2198893300981385 /* RankingTableViewCell.swift in Sources */,
 				F22636FD219883D300981385 /* AppDelegate.swift in Sources */,
+				F282A7542198B2320066C540 /* PlayerTableViewCell.swift in Sources */,
 				F2263736219887A600981385 /* Player.swift in Sources */,
 				F22637342198868B00981385 /* InfoViewController.swift in Sources */,
 			);
