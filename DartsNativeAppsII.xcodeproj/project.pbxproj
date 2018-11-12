@@ -152,8 +152,6 @@
 		F226372F2198841000981385 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
-				F282A7532198B2320066C540 /* PlayerTableViewCell.swift */,
-				F22637392198893300981385 /* RankingTableViewCell.swift */,
 				F22637302198842C00981385 /* ViewControllers */,
 			);
 			path = GUI;
@@ -162,12 +160,22 @@
 		F22637302198842C00981385 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F282A7552198B8450066C540 /* TableViewCells */,
 				F22637372198884400981385 /* RankingTableViewController.swift */,
 				F22636FE219883D300981385 /* PlayerTableViewController.swift */,
 				F22637312198867300981385 /* PlayerDetailViewController.swift */,
 				F22637332198868B00981385 /* InfoViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F282A7552198B8450066C540 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F282A7532198B2320066C540 /* PlayerTableViewCell.swift */,
+				F22637392198893300981385 /* RankingTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

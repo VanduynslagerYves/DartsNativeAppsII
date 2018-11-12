@@ -68,7 +68,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RankingTableViewCell" rowHeight="60" id="mRH-K9-hVj" customClass="RankingTableViewCell" customModule="DartsNativeAppsII" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RankingTableViewCell" rowHeight="60" id="mRH-K9-hVj" customClass="RankingTableViewCell" customModule="DartsNativeAppsII" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mRH-K9-hVj" id="GuP-HD-fMT">
@@ -118,7 +118,7 @@
                                     <outlet property="lbl_name" destination="Qss-Eo-Tlh" id="89W-WD-33R"/>
                                     <outlet property="lbl_rank" destination="WkE-zR-n2U" id="wUo-9p-8J3"/>
                                     <outlet property="lbl_score" destination="q41-QK-YgY" id="DgS-o3-l9j"/>
-                                    <segue destination="s0R-jg-tJW" kind="show" identifier="ShowDetail" id="SWu-oe-cUm"/>
+                                    <segue destination="s0R-jg-tJW" kind="show" identifier="ShowPlayerDetail" id="ua8-S3-vec"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -210,7 +210,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lbl_name" destination="UWt-Yq-lXP" id="oVo-pN-ujW"/>
-                                    <segue destination="XEv-ln-PkD" kind="show" identifier="EditPlayer" id="e53-Au-f5K"/>
+                                    <segue destination="XEv-ln-PkD" kind="show" identifier="ShowPlayerEdit" id="e53-Au-f5K"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -223,7 +223,7 @@
                         <barButtonItem key="backBarButtonItem" title="Players" id="jOc-rJ-V19"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IDY-zD-D4J">
                             <connections>
-                                <segue destination="9kA-pi-gNx" kind="show" identifier="" id="f5m-zO-09c"/>
+                                <segue destination="9kA-pi-gNx" kind="show" identifier="ShowPlayerAdd" id="f5m-zO-09c"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

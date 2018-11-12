@@ -48,6 +48,42 @@ class RankingTableViewController: UITableViewController
         players += [player1, player2, player3]
     }
 
+    //wordt uitgevoerd na push on button ofzo
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if (segue.identifier == "ShowPlayerDetail")
+        {
+            guard let playerDetailViewController = segue.destination as? PlayerDetailViewController else
+            {
+                fatalError("Unknown controller: \(segue.destination)")
+            }
+            
+            guard let selectedPlayerCell = sender as? RankingTableViewCell else
+            {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedPlayerCell) else
+            {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedPlayer = players[indexPath.row]
+            playerDetailViewController.player = selectedPlayer
+            
+        }
+        else
+        {
+            fatalError("Unexpected segue identifier: \(String(describing: segue.identifier))")
+        }
+        //HIER DATA DOORGEVEN, zie Quiz app
+        //segue.destination...
+    }
+    
+    /*@IBAction func yellowButtonTapped(_ sender: Any) {
+            performSegue(withIdentifier: "Yellow", sender: nil)
+    }
+    */
     
     //MARK: Actions
     /*@IBAction func unwindToPlayerList(sender: UIStoryboardSegue)

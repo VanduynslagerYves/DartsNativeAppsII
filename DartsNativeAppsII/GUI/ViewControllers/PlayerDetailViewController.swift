@@ -9,7 +9,9 @@
 import UIKit
 
 class PlayerDetailViewController: UIViewController {
-
+    
+    var player: Player!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
