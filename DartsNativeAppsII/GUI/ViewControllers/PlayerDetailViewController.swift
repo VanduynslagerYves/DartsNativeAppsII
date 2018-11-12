@@ -11,11 +11,20 @@ import UIKit
 class PlayerDetailViewController: UIViewController {
     
     var player: Player!
+    @IBOutlet weak var lbl_fullname: UILabel!
+    @IBOutlet weak var lbl_score: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lbl_fullname.text = player.fullName
+        lbl_score.text = "\(player.score)"
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
     }
     
 
