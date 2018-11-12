@@ -18,7 +18,7 @@ class RankingTableViewController: UITableViewController
         }
     }
     
-    private let playerInitError = "Player failed to initialize!"
+    internal let playerInitError = "Player failed to initialize!"
     
     override func viewDidLoad()
     {

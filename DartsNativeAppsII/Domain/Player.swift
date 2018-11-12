@@ -16,19 +16,20 @@ class Player
     var lastName: String
     var photo: UIImage?
     var score: Int
+    
     //Computed property
     var fullName : String {
-        return "\(firstName + " " + lastName)"
+        return "\(firstName) \(lastName)"
     }
     
     //MARK: Initialization
     init?(firstName first: String, lastName last: String, _ photo: UIImage?, _ score: Int)
     {
-        guard !first.isEmpty && !last.isEmpty else {
+        guard !first.isEmpty && !last.isEmpty else { //firstname and lastname must have values
             return nil
         }
         
-        guard score >= 0 else {
+        guard score >= 0 else { //score can never be lower than 0
             return nil
         }
         
@@ -37,6 +38,4 @@ class Player
         self.photo = photo
         self.score = score
     }
-    
-
 }

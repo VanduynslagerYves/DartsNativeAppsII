@@ -10,14 +10,20 @@ import UIKit
 
 class PlayerDetailViewController: UIViewController {
     
-    var player: Player!
+    var player: Player?
+    
     @IBOutlet weak var lbl_fullname: UILabel!
     @IBOutlet weak var lbl_score: UILabel!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        lbl_fullname.text = player.fullName
-        lbl_score.text = "\(player.score)"
+        
+        guard let selectedPlayer = player else {
+            fatalError("Player not found")
+        }
+        lbl_fullname.text = selectedPlayer.fullName
+        lbl_score.text = "Score: \(selectedPlayer.score)"
         // Do any additional setup after loading the view.
     }
     
