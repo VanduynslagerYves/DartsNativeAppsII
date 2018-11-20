@@ -9,21 +9,26 @@
 import UIKit
 import Foundation
 
-class Player
+//Protocols: interfaces in java
+class Player: ProtoPlayer, CustomStringConvertible, Comparable, Equatable, Codable
 {
     //MARK: Properties
     var firstName: String
     var lastName: String
-    var photo: UIImage?
+    //var photo: UIImage?
     var score: Int
     
-    //Computed property
+    //MARK: Computed property
     var fullName : String {
         return "\(firstName) \(lastName)"
     }
+    //required for CustomStringConvertible (toString in Java)
+    var description: String {
+        return "Player(firstName: \(firstName), lastName: \(lastName), score: \(score), fullName: \(fullName)"
+    }
     
     //MARK: Initialization
-    init?(firstName first: String, lastName last: String, _ photo: UIImage?, _ score: Int)
+    init?(firstName first: String, lastName last: String, /*_ photo: UIImage?, */_ score: Int)
     {
         guard !first.isEmpty && !last.isEmpty else { //firstname and lastname must have values
             return nil
@@ -35,7 +40,21 @@ class Player
         
         self.firstName = first
         self.lastName = last
-        self.photo = photo
+        //self.photo = photo
         self.score = score
+        
+        //print self: uses description
+        print(self)
+    }
+    
+    //MARK: Equatable
+    static func == (player1: Player, player2: Player) -> Bool {
+        return player1.firstName == player2.firstName && player1.lastName == player2.lastName && player1.score == player2.score
+    }
+    
+    //MARK: Comparable
+    //used to sort players on score
+    static func < (lhs: Player, rhs: Player) -> Bool {
+        return lhs.score < rhs.score
     }
 }

@@ -14,7 +14,9 @@ class RankingTableViewController: UITableViewController
     //Initialize empty Player array
     var players = [Player]() {
         didSet{
-            players = players.sorted(by:{ $0.score > $1.score})
+            //players = players.sorted(by:{ $0.score > $1.score})
+            //sort on score descending, needs Comparable in Player
+            players = players.sorted(by: >)
         }
     }
     
@@ -31,15 +33,15 @@ class RankingTableViewController: UITableViewController
      */
     private func loadPlayers()
     {
-        guard let player1 = Player(firstName: "Bert", lastName: "Vanrotsbakker", nil, 15) else {
+        guard let player1 = Player(firstName: "Bert", lastName: "Vanrotsbakker", 15) else {
             os_log("player init failure on player1", log: OSLog.default, type: .debug)
             fatalError(playerInitError)
         }
-        guard let player2 = Player(firstName: "Noatn", lastName: "Caring", nil, 6) else {
+        guard let player2 = Player(firstName: "Noatn", lastName: "Caring", 6) else {
             os_log("player init failure on player2", log: OSLog.default, type: .debug)
             fatalError(playerInitError)
         }
-        guard let player3 = Player(firstName: "Ernie", lastName: "Sesam", nil, 0) else {
+        guard let player3 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
             os_log("player init failure on player3", log: OSLog.default, type: .debug)
             fatalError(playerInitError)
             

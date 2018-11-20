@@ -21,6 +21,7 @@
 		F22637382198884400981385 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637372198884400981385 /* RankingTableViewController.swift */; };
 		F226373A2198893300981385 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637392198893300981385 /* RankingTableViewCell.swift */; };
 		F282A7542198B2320066C540 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282A7532198B2320066C540 /* PlayerTableViewCell.swift */; };
+		F2E4488B21A4BE43007B13BD /* ProtoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F22637372198884400981385 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		F22637392198893300981385 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		F282A7532198B2320066C540 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				F2263735219887A600981385 /* Player.swift */,
+				F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22637382198884400981385 /* RankingTableViewController.swift in Sources */,
+				F2E4488B21A4BE43007B13BD /* ProtoPlayer.swift in Sources */,
 				F2263705219883D300981385 /* DartsNativeAppsII.xcdatamodeld in Sources */,
 				F22637322198867300981385 /* PlayerDetailViewController.swift in Sources */,
 				F22636FF219883D300981385 /* PlayerTableViewController.swift in Sources */,
