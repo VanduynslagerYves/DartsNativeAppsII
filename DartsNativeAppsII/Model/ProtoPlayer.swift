@@ -8,10 +8,6 @@
 
 import Foundation
 
-//CustomStringConvertible: toString in java
-//Equatable: use to check if two instances are identical using == operator
-//Comparable: use to sort on a property
-//Codable: serialization and deserialization
 protocol ProtoPlayer{
     var firstName: String {get}
     var lastName: String {get}

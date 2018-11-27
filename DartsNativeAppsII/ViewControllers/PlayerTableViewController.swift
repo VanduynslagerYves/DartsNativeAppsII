@@ -133,5 +133,41 @@ class PlayerTableViewController: UITableViewController
      // Pass the selected object to the new view controller.
      }
      */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if (segue.identifier == "EditSegue")
+        {
+            guard let playerEditViewController = segue.destination as? PlayerEditViewController else
+            {
+                fatalError("Unknown controller: \(segue.destination)")
+            }
+            
+            guard let selectedPlayerCell = sender as? PlayerTableViewCell else
+            {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedPlayerCell) else
+            {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedPlayer = players[indexPath.row]
+            playerEditViewController.player = selectedPlayer
+            
+            playerEditViewController.title = "Edit \(selectedPlayer.firstName)"
+                
+                //Set back button to "player's details text" Instead of "Players"
+                /*let backItem = UIBarButtonItem()
+                backItem.title = self.title
+                navigationBar.backBarButtonItem = backItem*/
+        }
+        else
+        {
+            fatalError("Unexpected segue identifier: \(String(describing: segue.identifier))")
+        }
+        //HIER DATA DOORGEVEN, zie Quiz app
+        //segue.destination...
+    }
     
 }

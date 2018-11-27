@@ -1,19 +1,18 @@
 //
-//  PlayersViewController.swift
+//  PlayerEditViewController.swift
 //  DartsNativeAppsII
 //
-//  Created by Yves on 11/11/2018.
+//  Created by Yves on 27/11/2018.
 //  Copyright © 2018 Yves. All rights reserved.
 //
 
 import UIKit
 
-class PlayerDetailViewController: UIViewController {
-    
+class PlayerEditViewController: UIViewController {
+
     var player: Player?
-    
-    @IBOutlet weak var lbl_fullname: UILabel!
-    @IBOutlet weak var lbl_score: UILabel!
+    @IBOutlet weak var txt_firstName: UITextField!
+    @IBOutlet weak var txt_lastName: UITextField!
     
     override func viewDidLoad()
     {
@@ -22,18 +21,20 @@ class PlayerDetailViewController: UIViewController {
         guard let selectedPlayer = player else {
             fatalError("Player not found")
         }
-        lbl_fullname.text = selectedPlayer.fullName
-        lbl_score.text = "Score: \(selectedPlayer.score)"
+        self.update(for: selectedPlayer)
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
     
-
+    private func update(for player: Player)
+    {
+        txt_firstName.text = player.firstName
+        txt_lastName.text = player.lastName
+    }
+    @IBAction func save(_ sender: UIBarButtonItem)
+    {
+        //when save button is tapped
+    }
     /*
     // MARK: - Navigation
 

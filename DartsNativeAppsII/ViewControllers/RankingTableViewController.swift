@@ -28,6 +28,11 @@ class RankingTableViewController: UITableViewController
         loadPlayers()
     }
     
+    private func savePlayers()
+    {
+        
+    }
+    
     /*
      initialize players
      */
@@ -72,6 +77,7 @@ class RankingTableViewController: UITableViewController
             
             let selectedPlayer = players[indexPath.row]
             playerDetailViewController.player = selectedPlayer
+            playerDetailViewController.title = "\(selectedPlayer.firstName)'s Details"
             
         }
         else
@@ -88,17 +94,17 @@ class RankingTableViewController: UITableViewController
     */
     
     //MARK: Actions
-    /*@IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
+    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
     {
-        if let sourceViewController = sender.source as? RankingViewController, let player = sourceViewController.player {
+        /*if let sourceViewController = sender.source as? RankingViewController, let player = sourceViewController.player {
             //index for the new row to be added
             let newIndexPath = IndexPath(row: players.count, section: 0)
             //add the player to the list
             players.append(player)
             //add a new row
             tableView.insertRows(at: [newIndexPath], with: .automatic)
-        }
-    }*/
+        }*/
+    }
     // MARK: - Table view data source
     //Tells the table how many sections to display
     override func numberOfSections(in tableView: UITableView) -> Int {

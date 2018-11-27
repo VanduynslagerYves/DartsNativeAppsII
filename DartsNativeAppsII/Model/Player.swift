@@ -10,6 +10,10 @@ import UIKit
 import Foundation
 
 //Protocols: interfaces in java
+//CustomStringConvertible: toString in java
+//Equatable: use to check if two instances are identical using == operator
+//Comparable: use to sort on a property
+//Codable: serialization and deserialization
 class Player: ProtoPlayer, CustomStringConvertible, Comparable, Equatable, Codable
 {
     //MARK: Properties

@@ -20,6 +20,8 @@
 		F2263736219887A600981385 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2263735219887A600981385 /* Player.swift */; };
 		F22637382198884400981385 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637372198884400981385 /* RankingTableViewController.swift */; };
 		F226373A2198893300981385 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22637392198893300981385 /* RankingTableViewCell.swift */; };
+		F242D15221AD940E001C1A66 /* PlayerEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F242D15121AD940E001C1A66 /* PlayerEditViewController.swift */; };
+		F242D15521AD9A26001C1A66 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F242D15421AD9A26001C1A66 /* Default-568h@2x.png */; };
 		F282A7542198B2320066C540 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282A7532198B2320066C540 /* PlayerTableViewCell.swift */; };
 		F2E4488B21A4BE43007B13BD /* ProtoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 		F2263735219887A600981385 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F22637372198884400981385 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		F22637392198893300981385 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		F242D15121AD940E001C1A66 /* PlayerEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEditViewController.swift; sourceTree = "<group>"; };
+		F242D15421AD9A26001C1A66 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F282A7532198B2320066C540 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +97,7 @@
 		F22636F0219883D200981385 = {
 			isa = PBXGroup;
 			children = (
+				F242D15421AD9A26001C1A66 /* Default-568h@2x.png */,
 				F22636FB219883D300981385 /* DartsNativeAppsII */,
 				F2263713219883D400981385 /* DartsNativeAppsIITests */,
 				F226371E219883D400981385 /* DartsNativeAppsIIUITests */,
@@ -113,12 +118,11 @@
 		F22636FB219883D300981385 /* DartsNativeAppsII */ = {
 			isa = PBXGroup;
 			children = (
-				F226372F2198841000981385 /* GUI */,
-				F226372D219883FA00981385 /* Domain */,
+				F242D15321AD99E2001C1A66 /* Settings */,
+				F22637302198842C00981385 /* ViewControllers */,
+				F226372F2198841000981385 /* Views */,
+				F226372D219883FA00981385 /* Model */,
 				F22636FC219883D300981385 /* AppDelegate.swift */,
-				F2263700219883D300981385 /* Main.storyboard */,
-				F2263706219883D400981385 /* Assets.xcassets */,
-				F2263708219883D400981385 /* LaunchScreen.storyboard */,
 				F226370B219883D400981385 /* Info.plist */,
 				F2263703219883D300981385 /* DartsNativeAppsII.xcdatamodeld */,
 			);
@@ -143,21 +147,23 @@
 			path = DartsNativeAppsIIUITests;
 			sourceTree = "<group>";
 		};
-		F226372D219883FA00981385 /* Domain */ = {
+		F226372D219883FA00981385 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F2263735219887A600981385 /* Player.swift */,
 				F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */,
 			);
-			path = Domain;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		F226372F2198841000981385 /* GUI */ = {
+		F226372F2198841000981385 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F22637302198842C00981385 /* ViewControllers */,
+				F2263700219883D300981385 /* Main.storyboard */,
+				F2263708219883D400981385 /* LaunchScreen.storyboard */,
+				F2263706219883D400981385 /* Assets.xcassets */,
 			);
-			path = GUI;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F22637302198842C00981385 /* ViewControllers */ = {
@@ -168,8 +174,16 @@
 				F22636FE219883D300981385 /* PlayerTableViewController.swift */,
 				F22637312198867300981385 /* PlayerDetailViewController.swift */,
 				F22637332198868B00981385 /* InfoViewController.swift */,
+				F242D15121AD940E001C1A66 /* PlayerEditViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F242D15321AD99E2001C1A66 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F282A7552198B8450066C540 /* TableViewCells */ = {
@@ -286,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F226370A219883D400981385 /* LaunchScreen.storyboard in Resources */,
+				F242D15521AD9A26001C1A66 /* Default-568h@2x.png in Resources */,
 				F2263707219883D400981385 /* Assets.xcassets in Resources */,
 				F2263702219883D300981385 /* Main.storyboard in Resources */,
 			);
@@ -313,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22637382198884400981385 /* RankingTableViewController.swift in Sources */,
+				F242D15221AD940E001C1A66 /* PlayerEditViewController.swift in Sources */,
 				F2E4488B21A4BE43007B13BD /* ProtoPlayer.swift in Sources */,
 				F2263705219883D300981385 /* DartsNativeAppsII.xcdatamodeld in Sources */,
 				F22637322198867300981385 /* PlayerDetailViewController.swift in Sources */,
