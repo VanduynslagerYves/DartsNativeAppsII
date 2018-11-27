@@ -45,6 +45,8 @@ class PlayerDetailViewController: UIViewController
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        super.prepare(for: segue, sender: sender)
+        
         if(segue.identifier == "EditSegue")
         {
             guard let playerEditViewController = segue.destination as? PlayerEditViewController else

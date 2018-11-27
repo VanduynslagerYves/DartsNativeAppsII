@@ -55,9 +55,30 @@ class RankingTableViewController: UITableViewController
         players += [player1, player2, player3]
     }
 
+    //MARK: Actions
+    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
+    {
+        if let source = sender.source as? PlayerFormViewController, let player = source.player
+        {
+            //index for the new row to be added
+            let index = IndexPath(row: players.count, section: 0)
+            //add the player to the list
+            players.append(player)
+            //add a new row
+            tableView.insertRows(at: [index], with: .automatic)
+            
+            //players didSet method is called first to sort the players on their name
+            //this conflicts with the way the cells are drawn, cellViews are not sorted
+            //but data is. Therefore we need to reload the data into the tableView
+            tableView.reloadData()
+        }
+    }
+    
     //wordt uitgevoerd na push on button ofzo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        super.prepare(for: segue, sender: sender)
+        
         if (segue.identifier == "ShowPlayerDetail")
         {
             guard let playerDetailViewController = segue.destination as? PlayerDetailViewController else
@@ -93,18 +114,8 @@ class RankingTableViewController: UITableViewController
     }
     */
     
-    //MARK: Actions
-    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
-    {
-        /*if let sourceViewController = sender.source as? RankingViewController, let player = sourceViewController.player {
-            //index for the new row to be added
-            let newIndexPath = IndexPath(row: players.count, section: 0)
-            //add the player to the list
-            players.append(player)
-            //add a new row
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        }*/
-    }
+    
+
     // MARK: - Table view data source
     //Tells the table how many sections to display
     override func numberOfSections(in tableView: UITableView) -> Int {

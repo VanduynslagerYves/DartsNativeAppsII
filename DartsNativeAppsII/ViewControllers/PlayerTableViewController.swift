@@ -12,9 +12,11 @@ class PlayerTableViewController: UITableViewController
 {
     //MARK: Properties
     //Initialize empty Player array
-    var players = [Player]() {
+    var players = [Player]()
+    {
         didSet{
-            players = players.sorted(by:{ $0.firstName > $1.lastName})
+            //players = players.sorted(by:{ $0.firstName > $1.lastName})
+            players.sort() { $0.fullName < $1.fullName}
         }
     }
     
@@ -50,17 +52,23 @@ class PlayerTableViewController: UITableViewController
     
     
     //MARK: Actions
-    /*@IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
-     {
-     if let sourceViewController = sender.source as? RankingViewController, let player = sourceViewController.player {
-     //index for the new row to be added
-     let newIndexPath = IndexPath(row: players.count, section: 0)
-     //add the player to the list
-     players.append(player)
-     //add a new row
-     tableView.insertRows(at: [newIndexPath], with: .automatic)
+    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
+    {
+        if let source = sender.source as? PlayerFormViewController, let player = source.player
+        {
+        //index for the new row to be added
+        let index = IndexPath(row: players.count, section: 0)
+        //add the player to the list
+        players.append(player)
+            //add a new row
+            tableView.insertRows(at: [index], with: .automatic)
+            
+            //players didSet method is called first to sort the players on their name
+            //this conflicts with the way the cells are drawn, cellViews are not sorted
+            //but data is. Therefore we need to reload the data into the tableView
+            tableView.reloadData()
+        }
      }
-     }*/
     // MARK: - Table view data source
     //Tells the table how many sections to display
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -135,6 +143,8 @@ class PlayerTableViewController: UITableViewController
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        super.prepare(for: segue, sender: sender)
+        
         if (segue.identifier == "EditSegue")
         {
             guard let playerEditViewController = segue.destination as? PlayerEditViewController else
@@ -156,18 +166,20 @@ class PlayerTableViewController: UITableViewController
             playerEditViewController.player = selectedPlayer
             
             playerEditViewController.title = "Edit \(selectedPlayer.firstName)"
-                
-                //Set back button to "player's details text" Instead of "Players"
-                /*let backItem = UIBarButtonItem()
-                backItem.title = self.title
-                navigationBar.backBarButtonItem = backItem*/
         }
-        else
+        /*
+ else
         {
+            if(segue.identifier == "NewSegue")
+            {
+                
+            }
             fatalError("Unexpected segue identifier: \(String(describing: segue.identifier))")
-        }
+        }*/
         //HIER DATA DOORGEVEN, zie Quiz app
         //segue.destination...
+        
+        
     }
     
 }
