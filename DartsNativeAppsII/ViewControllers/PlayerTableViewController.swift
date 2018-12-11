@@ -56,10 +56,10 @@ class PlayerTableViewController: UITableViewController
     {
         if let source = sender.source as? PlayerFormViewController, let player = source.player
         {
-        //index for the new row to be added
-        let index = IndexPath(row: players.count, section: 0)
-        //add the player to the list
-        players.append(player)
+            //index for the new row to be added
+            let index = IndexPath(row: players.count, section: 0)
+            //add the player to the list
+            players.append(player)
             //add a new row
             tableView.insertRows(at: [index], with: .automatic)
             
@@ -67,6 +67,23 @@ class PlayerTableViewController: UITableViewController
             //this conflicts with the way the cells are drawn, cellViews are not sorted
             //but data is. Therefore we need to reload the data into the tableView
             tableView.reloadData()
+        }
+        
+        if let source = sender.source as? PlayerEditViewController, let player = source.player
+        {
+            if let indexPath = tableView.indexPathForSelectedRow
+            {
+                let index = indexPath.row
+                
+                players.remove(at: index)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                players.insert(player, at: index)
+                tableView.insertRows(at: [indexPath], with: .automatic)
+                
+                tableView.deselectRow(at: indexPath, animated: true)
+                tableView.reloadData()
+            }
         }
      }
     // MARK: - Table view data source

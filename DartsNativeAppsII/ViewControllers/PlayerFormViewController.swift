@@ -16,12 +16,12 @@ class PlayerFormViewController: UIViewController {
     @IBOutlet weak var btn_save: UIBarButtonItem!
     
     var player: Player?
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
     
     // MARK: - Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -31,7 +31,8 @@ class PlayerFormViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     //Save button is set to unwind to PlayerList.
     //PlayerTable has access to this Player through sender.source
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         super.prepare(for: segue, sender: sender)
 
         guard let button = sender as? UIBarButtonItem, button === btn_save else {
@@ -39,8 +40,8 @@ class PlayerFormViewController: UIViewController {
             return
         }
         
-        let firstName = txt_firstName.text ?? ""
-        let lastName = txt_lastName.text ?? ""
+        guard let firstName = txt_firstName.text, let lastName = txt_lastName.text
+            else { return }
         
         player = Player(firstName: firstName, lastName: lastName, 0)
     }

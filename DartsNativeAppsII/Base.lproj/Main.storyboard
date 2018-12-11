@@ -91,16 +91,18 @@
                     <navigationItem key="navigationItem" title="Edit Player" id="lmA-AF-oQW">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="gxf-zz-zCm">
                             <connections>
-                                <action selector="save:" destination="XEv-ln-PkD" id="svL-El-3zA"/>
+                                <segue destination="SkF-Ri-pcO" kind="unwind" unwindAction="unwindToPlayerListWithSender:" id="i5t-WO-5zV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btn_save" destination="gxf-zz-zCm" id="xen-Xy-vFn"/>
                         <outlet property="txt_firstName" destination="rtG-vS-Dvh" id="gLk-ab-PhX"/>
                         <outlet property="txt_lastName" destination="bh4-Yg-3tb" id="NWH-TG-eol"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1r-PF-2Sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SkF-Ri-pcO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="281" y="1981"/>
         </scene>
