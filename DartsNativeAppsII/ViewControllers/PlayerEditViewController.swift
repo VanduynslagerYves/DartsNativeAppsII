@@ -9,12 +9,15 @@
 import UIKit
 import os.log
 
-class PlayerEditViewController: UIViewController {
-
+class PlayerEditViewController: UIViewController
+{
     var player: Player?
+    var performedAction : PerformedAction?
+    
     @IBOutlet weak var txt_firstName: UITextField!
     @IBOutlet weak var txt_lastName: UITextField!
     @IBOutlet weak var btn_save: UIBarButtonItem!
+    @IBOutlet weak var btn_delete: UIBarButtonItem!
     
     override func viewDidLoad()
     {
@@ -32,6 +35,7 @@ class PlayerEditViewController: UIViewController {
         txt_firstName.text = player.firstName
         txt_lastName.text = player.lastName
     }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     //Save button is set to unwind to PlayerList.
     //PlayerTable has access to this Player through sender.source
@@ -39,8 +43,33 @@ class PlayerEditViewController: UIViewController {
     {
         super.prepare(for: segue, sender: sender)
         
-        guard let button = sender as? UIBarButtonItem, button === btn_save else {
+        if let button = sender as? UIBarButtonItem, button === btn_save
+        {
+            guard let firstName = txt_firstName.text, let lastName = txt_lastName.text
+                else { return }
+            
+            performedAction = .update
+            
+            player?.firstName = firstName
+            player?.lastName = lastName
+        }
+        /*else
+        {
             os_log("Save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }*/
+        
+        if let button = sender as? UIBarButtonItem, button === btn_delete
+        {
+            performedAction = .delete
+        }
+        /*else
+        {
+            os_log("Delete button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }*/
+        /*guard let button = sender as? UIBarButtonItem, button === btn_save else {
+            
             return
         }
         
@@ -48,16 +77,6 @@ class PlayerEditViewController: UIViewController {
             else { return }
         
         player?.firstName = firstName
-        player?.lastName = lastName
+        player?.lastName = lastName*/
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

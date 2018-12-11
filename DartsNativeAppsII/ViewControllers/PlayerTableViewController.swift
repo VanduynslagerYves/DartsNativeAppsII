@@ -22,6 +22,12 @@ class PlayerTableViewController: UITableViewController
     
     private let playerInitError = "Player failed to initialize!"
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -66,24 +72,32 @@ class PlayerTableViewController: UITableViewController
             //players didSet method is called first to sort the players on their name
             //this conflicts with the way the cells are drawn, cellViews are not sorted
             //but data is. Therefore we need to reload the data into the tableView
-            tableView.reloadData()
+            //tableView.reloadData()
         }
         
         if let source = sender.source as? PlayerEditViewController, let player = source.player
         {
-            if let indexPath = tableView.indexPathForSelectedRow
-            {
-                let index = indexPath.row
+                if let indexPath = tableView.indexPathForSelectedRow
+                {
+                    let index = indexPath.row
                 
-                players.remove(at: index)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
+                    if(source.performedAction == .update)
+                    {
+                        players.remove(at: index)
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
                 
-                players.insert(player, at: index)
-                tableView.insertRows(at: [indexPath], with: .automatic)
+                        players.insert(player, at: index)
+                        tableView.insertRows(at: [indexPath], with: .automatic)
                 
-                tableView.deselectRow(at: indexPath, animated: true)
-                tableView.reloadData()
-            }
+                        tableView.deselectRow(at: indexPath, animated: true)
+                        //tableView.reloadData()
+                    }
+                    if(source.performedAction == .delete)
+                    {
+                        players.remove(at: index)
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
+                }
         }
      }
     // MARK: - Table view data source

@@ -89,13 +89,21 @@
                         <viewLayoutGuide key="safeArea" id="wZm-Kp-P7R"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Player" id="lmA-AF-oQW">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="gxf-zz-zCm">
-                            <connections>
-                                <segue destination="SkF-Ri-pcO" kind="unwind" unwindAction="unwindToPlayerListWithSender:" id="i5t-WO-5zV"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="gxf-zz-zCm">
+                                <connections>
+                                    <segue destination="SkF-Ri-pcO" kind="unwind" identifier="SaveToPlayerListSegue" unwindAction="unwindToPlayerListWithSender:" id="i5t-WO-5zV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="A9j-Ri-Sst">
+                                <connections>
+                                    <segue destination="SkF-Ri-pcO" kind="unwind" identifier="DeleteToPlayerListSegue" unwindAction="unwindToPlayerListWithSender:" id="3Eh-7g-y5F"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="btn_delete" destination="A9j-Ri-Sst" id="4X0-a9-6gT"/>
                         <outlet property="btn_save" destination="gxf-zz-zCm" id="xen-Xy-vFn"/>
                         <outlet property="txt_firstName" destination="rtG-vS-Dvh" id="gLk-ab-PhX"/>
                         <outlet property="txt_lastName" destination="bh4-Yg-3tb" id="NWH-TG-eol"/>
@@ -104,7 +112,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1r-PF-2Sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SkF-Ri-pcO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="281" y="1981"/>
+            <point key="canvasLocation" x="372" y="1979"/>
         </scene>
         <!--Info-->
         <scene sceneID="nBF-9V-Ma0">

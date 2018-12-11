@@ -28,6 +28,12 @@ class RankingTableViewController: UITableViewController
         loadPlayers()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     private func savePlayers()
     {
         
@@ -70,7 +76,7 @@ class RankingTableViewController: UITableViewController
             //players didSet method is called first to sort the players on their name
             //this conflicts with the way the cells are drawn, cellViews are not sorted
             //but data is. Therefore we need to reload the data into the tableView
-            tableView.reloadData()
+            //tableView.reloadData()
         }
     }
     
