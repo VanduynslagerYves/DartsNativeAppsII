@@ -26,12 +26,17 @@ class PlayerTableViewController: UITableViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //reload tableView data when this view will appear.
         tableView.reloadData()
     }
     override func viewDidLoad()
     {
         super.viewDidLoad()
         loadPlayers()
+        
+        //editButtonItem is an already-defined button that switches the table view's
+        //editing on and off
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     /*
@@ -50,10 +55,59 @@ class PlayerTableViewController: UITableViewController
         guard let player3 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
             os_log("player init failure on player3", log: OSLog.default, type: .debug)
             fatalError(playerInitError)
-            
+        }
+        guard let player4 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player5 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player6 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player7 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player8 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player9 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player10 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player11 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player12 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player13 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player14 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player15 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
         }
         
-        players += [player1, player2, player3]
+        
+        players += [player1, player2, player3, player4, player5, player6, player7, player8,
+        player9, player10, player11, player12, player13, player14, player15]
     }
     
     
@@ -63,16 +117,11 @@ class PlayerTableViewController: UITableViewController
         if let source = sender.source as? PlayerFormViewController, let player = source.player
         {
             //index for the new row to be added
-            let index = IndexPath(row: players.count, section: 0)
+            //let index = IndexPath(row: players.count, section: 0)
             //add the player to the list
             players.append(player)
             //add a new row
-            tableView.insertRows(at: [index], with: .automatic)
-            
-            //players didSet method is called first to sort the players on their name
-            //this conflicts with the way the cells are drawn, cellViews are not sorted
-            //but data is. Therefore we need to reload the data into the tableView
-            //tableView.reloadData()
+            //tableView.insertRows(at: [index], with: .automatic)
         }
         
         if let source = sender.source as? PlayerEditViewController, let player = source.player
@@ -84,49 +133,98 @@ class PlayerTableViewController: UITableViewController
                     if(source.performedAction == .update)
                     {
                         players.remove(at: index)
-                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                        //tableView.deleteRows(at: [indexPath], with: .automatic)
                 
                         players.insert(player, at: index)
-                        tableView.insertRows(at: [indexPath], with: .automatic)
+                        //tableView.insertRows(at: [indexPath], with: .automatic)
                 
                         tableView.deselectRow(at: indexPath, animated: true)
-                        //tableView.reloadData()
                     }
                     if(source.performedAction == .delete)
                     {
                         players.remove(at: index)
-                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                        //tableView.deleteRows(at: [indexPath], with: .automatic)
                     }
                 }
         }
      }
     // MARK: - Table view data source
     //Tells the table how many sections to display
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int
+    {
         return 1
     }
     
     //Tells the table how many rows to display in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        if section == 0
+        {
+            return players.count
+        }
+        else
+        {
+            return 0
+        }
     }
     
     //Sets up one cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        //1. Fetch correct cell type by dequeueing a cell
         let cellId = "PlayerTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? PlayerTableViewCell else {
             fatalError()
         }
         
+        //2. Fetch the model object to be displayed
         let row = indexPath.row
         let player = players[row]
         
-        cell.lbl_name.text = player.fullName
+        //3. Configure the cell's properties with the model object properties
+        cell.update(with: player)
         
+        
+        //Enables reordering of cells
+        //cell.showsReorderControl = true
+        
+        //4. Return fully configured cell
         return cell
     }
+    
+    //delegate method: called when user taps row
+    //instead of using storyboard to create a segue,
+    //you can use a programmed segue here to navigate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let p = players[indexPath.row]
+        print(p)
+    }
+    
+    //Deleting a player
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if(editingStyle == .delete)
+        {
+            //tableView.beginUpdates()
+            players.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            //tableView.endUpdates()
+            
+            /*
+             tableView.reloadData() -> this does not update the view right away, only after Done is pressed
+             */
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+            return .delete
+    }
+    
     
     /*
      // Override to support conditional editing of the table view.
@@ -198,19 +296,5 @@ class PlayerTableViewController: UITableViewController
             
             playerEditViewController.title = "Edit \(selectedPlayer.firstName)"
         }
-        /*
- else
-        {
-            if(segue.identifier == "NewSegue")
-            {
-                
-            }
-            fatalError("Unexpected segue identifier: \(String(describing: segue.identifier))")
-        }*/
-        //HIER DATA DOORGEVEN, zie Quiz app
-        //segue.destination...
-        
-        
     }
-    
 }

@@ -53,8 +53,8 @@ class PlayerEditViewController: UIViewController
             player?.firstName = firstName
             player?.lastName = lastName
         }
-        /*else
-        {
+        /*
+         
             os_log("Save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }*/
@@ -63,20 +63,5 @@ class PlayerEditViewController: UIViewController
         {
             performedAction = .delete
         }
-        /*else
-        {
-            os_log("Delete button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
-        }*/
-        /*guard let button = sender as? UIBarButtonItem, button === btn_save else {
-            
-            return
-        }
-        
-        guard let firstName = txt_firstName.text, let lastName = txt_lastName.text
-            else { return }
-        
-        player?.firstName = firstName
-        player?.lastName = lastName*/
     }
 }

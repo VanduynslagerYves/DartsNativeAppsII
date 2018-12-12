@@ -22,21 +22,16 @@ class RankingTableViewController: UITableViewController
     
     internal let playerInitError = "Player failed to initialize!"
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         loadPlayers()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
-    }
-    
-    private func savePlayers()
-    {
-        
     }
     
     /*
@@ -55,10 +50,59 @@ class RankingTableViewController: UITableViewController
         guard let player3 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
             os_log("player init failure on player3", log: OSLog.default, type: .debug)
             fatalError(playerInitError)
-            
+        }
+        guard let player4 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player5 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player6 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player7 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player8 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player9 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player10 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player11 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player12 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player13 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player14 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        guard let player15 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
+            os_log("player init failure on player3", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
         }
         
-        players += [player1, player2, player3]
+        
+        players += [player1, player2, player3, player4, player5, player6, player7, player8,
+                    player9, player10, player11, player12, player13, player14, player15]
     }
 
     //MARK: Actions
@@ -130,26 +174,38 @@ class RankingTableViewController: UITableViewController
 
     //Tells the table how many rows to display in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        if section == 0
+        {
+            return players.count
+        }
+        else
+        {
+            return 0
+        }
     }
 
     //Sets up one cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        //1. Fetch correct cell type by dequeueing a cell
         let cellId = "RankingTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? RankingTableViewCell else {
             fatalError()
         }
         
+        //2. Fetch the model object to be displayed
         let row = indexPath.row
         let player = players[row]
         
-        cell.lbl_rank.text = "\(row + 1)" /* Rank number. players are sorted descending on score
+        //3. Configure the cell's properties with the model object properties
+        cell.update(with: player, rank: row)
+        /*cell.lbl_rank.text = "\(row + 1)" /* Rank number. players are sorted descending on score
         so we can just use the rox index here */
         cell.lbl_name.text = player.fullName
-        cell.lbl_score.text = "\(player.score)"
+        cell.lbl_score.text = "\(player.score)"*/
 
+        //4. Return fully configured cell
         return cell
     }
 

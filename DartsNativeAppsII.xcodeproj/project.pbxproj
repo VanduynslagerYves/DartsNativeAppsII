@@ -24,6 +24,8 @@
 		F242D15521AD9A26001C1A66 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F242D15421AD9A26001C1A66 /* Default-568h@2x.png */; };
 		F242D15721ADA2EA001C1A66 /* PlayerFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F242D15621ADA2EA001C1A66 /* PlayerFormViewController.swift */; };
 		F2560B7821C07FD500CE1921 /* PerformedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2560B7721C07FD500CE1921 /* PerformedAction.swift */; };
+		F2560B7A21C0882F00CE1921 /* PlayerScoreModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2560B7921C0882F00CE1921 /* PlayerScoreModifier.swift */; };
+		F2560B7C21C089DF00CE1921 /* ScoreModifierError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2560B7B21C089DF00CE1921 /* ScoreModifierError.swift */; };
 		F282A7542198B2320066C540 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282A7532198B2320066C540 /* PlayerTableViewCell.swift */; };
 		F2E4488B21A4BE43007B13BD /* ProtoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,8 @@
 		F242D15421AD9A26001C1A66 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F242D15621ADA2EA001C1A66 /* PlayerFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerFormViewController.swift; sourceTree = "<group>"; };
 		F2560B7721C07FD500CE1921 /* PerformedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformedAction.swift; sourceTree = "<group>"; };
+		F2560B7921C0882F00CE1921 /* PlayerScoreModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScoreModifier.swift; sourceTree = "<group>"; };
+		F2560B7B21C089DF00CE1921 /* ScoreModifierError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModifierError.swift; sourceTree = "<group>"; };
 		F282A7532198B2320066C540 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +164,8 @@
 				F2263735219887A600981385 /* Player.swift */,
 				F2E4488A21A4BE43007B13BD /* ProtoPlayer.swift */,
 				F2560B7721C07FD500CE1921 /* PerformedAction.swift */,
+				F2560B7921C0882F00CE1921 /* PlayerScoreModifier.swift */,
+				F2560B7B21C089DF00CE1921 /* ScoreModifierError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,7 +182,6 @@
 		F22637302198842C00981385 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F282A7552198B8450066C540 /* TableViewCells */,
 				F22637372198884400981385 /* RankingTableViewController.swift */,
 				F22636FE219883D300981385 /* PlayerTableViewController.swift */,
 				F22637312198867300981385 /* PlayerDetailViewController.swift */,
@@ -192,13 +197,6 @@
 			children = (
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		F282A7552198B8450066C540 /* TableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,9 +340,11 @@
 				F22636FF219883D300981385 /* PlayerTableViewController.swift in Sources */,
 				F226373A2198893300981385 /* RankingTableViewCell.swift in Sources */,
 				F22636FD219883D300981385 /* AppDelegate.swift in Sources */,
+				F2560B7C21C089DF00CE1921 /* ScoreModifierError.swift in Sources */,
 				F2560B7821C07FD500CE1921 /* PerformedAction.swift in Sources */,
 				F282A7542198B2320066C540 /* PlayerTableViewCell.swift in Sources */,
 				F2263736219887A600981385 /* Player.swift in Sources */,
+				F2560B7A21C0882F00CE1921 /* PlayerScoreModifier.swift in Sources */,
 				F22637342198868B00981385 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

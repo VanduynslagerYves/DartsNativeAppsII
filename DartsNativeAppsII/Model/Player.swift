@@ -48,7 +48,7 @@ class Player: ProtoPlayer, CustomStringConvertible, Comparable, Equatable, Codab
         self.score = score
         
         //print self: uses description
-        print(self)
+        //print(self)
     }
     
     //MARK: Equatable

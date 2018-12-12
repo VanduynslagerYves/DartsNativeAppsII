@@ -46,11 +46,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="63g-vE-aAL">
                         <barButtonItem key="backBarButtonItem" title="Ranking" id="AbJ-J5-ToL"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WHc-lX-fGY">
-                            <connections>
-                                <segue destination="XEv-ln-PkD" kind="show" identifier="EditSegue" id="FvP-Gu-4i2"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="lbl_fullname" destination="Epq-oH-mWL" id="Vf5-DR-g7n"/>
@@ -157,7 +152,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qss-Eo-Tlh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qss-Eo-Tlh">
                                                     <rect key="frame" x="62.5" y="0.0" width="250" height="56"/>
                                                     <color key="backgroundColor" red="0.1647058824" green="0.19215686269999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -264,10 +259,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Igi-dc-OVO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-Yq-lXP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-Yq-lXP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                                     <color key="backgroundColor" red="0.1647058824" green="0.19215686269999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -279,12 +274,12 @@
                                     <color key="backgroundColor" red="0.56470588239999997" green="0.68627450980000004" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="Igi-dc-OVO" firstAttribute="leading" secondItem="pY3-14-hcx" secondAttribute="leading" id="6b0-q1-X54"/>
-                                        <constraint firstAttribute="bottom" secondItem="Igi-dc-OVO" secondAttribute="bottom" id="7oF-c8-rJL"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Igi-dc-OVO" secondAttribute="bottom" constant="-7" id="7oF-c8-rJL"/>
                                         <constraint firstAttribute="trailing" secondItem="Igi-dc-OVO" secondAttribute="trailing" id="J5T-eb-1A8"/>
                                         <constraint firstItem="Igi-dc-OVO" firstAttribute="top" secondItem="pY3-14-hcx" secondAttribute="top" id="Vi3-xo-XVN"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.56470588239999997" green="0.68627450980000004" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1647058824" green="0.19215686269999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="lbl_name" destination="UWt-Yq-lXP" id="oVo-pN-ujW"/>
                                     <segue destination="XEv-ln-PkD" kind="show" identifier="EditSegue" id="e53-Au-f5K"/>
@@ -399,7 +394,4 @@
             <point key="canvasLocation" x="1357.5999999999999" y="1979.4602698650676"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="e53-Au-f5K"/>
-    </inferredMetricsTieBreakers>
 </document>

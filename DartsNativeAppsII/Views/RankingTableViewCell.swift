@@ -24,4 +24,11 @@ class RankingTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func update(with player: Player, rank row: Int)
+    {
+        lbl_rank.text = "\(row + 1)"
+        lbl_name.text = player.fullName
+        lbl_score.text = "\(player.score)"
+    }
 }
