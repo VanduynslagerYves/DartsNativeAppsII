@@ -341,7 +341,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="CPW-k9-qgW">
                             <connections>
-                                <segue destination="ZS9-rF-ZvG" kind="unwind" unwindAction="unwindToPlayerListWithSender:" id="Rqt-7x-7gp"/>
+                                <segue destination="ZS9-rF-ZvG" kind="unwind" identifier="SaveToPlayerListSegue" unwindAction="unwindToPlayerListWithSender:" id="Rqt-7x-7gp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

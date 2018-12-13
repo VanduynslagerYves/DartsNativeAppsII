@@ -126,7 +126,7 @@ class PlayerTableViewController: UITableViewController
             {
                 let index = indexPath.row
                 
-                if segue.identifier == "SaveToPlayerListSegue"
+                if segue.identifier == "UpdateToPlayerListSegue"
                 {
                     players.remove(at: index)
                     players.insert(player, at: index)

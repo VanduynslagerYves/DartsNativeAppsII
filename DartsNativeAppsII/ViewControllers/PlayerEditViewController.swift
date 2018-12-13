@@ -12,7 +12,6 @@ import os.log
 class PlayerEditViewController: UIViewController
 {
     var player: Player?
-    var performedAction : PerformedAction?
     
     @IBOutlet weak var txt_firstName: UITextField!
     @IBOutlet weak var txt_lastName: UITextField!
@@ -59,9 +58,9 @@ class PlayerEditViewController: UIViewController
             return
         }*/
         
-        if let button = sender as? UIBarButtonItem, button === btn_delete
+        /*if let button = sender as? UIBarButtonItem, button === btn_delete
         {
             //performedAction = .delete
-        }
+        }*/
     }
 }
