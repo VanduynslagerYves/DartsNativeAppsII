@@ -87,12 +87,12 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Save" id="gxf-zz-zCm">
                                 <connections>
-                                    <segue destination="SkF-Ri-pcO" kind="unwind" identifier="SaveToPlayerListSegue" unwindAction="unwindToPlayerListWithSender:" id="i5t-WO-5zV"/>
+                                    <segue destination="SkF-Ri-pcO" kind="unwind" identifier="UpdateToPlayerListSegue" unwindAction="unwindToPlayerListWithSegue:" id="lgG-Or-aSZ"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="trash" id="A9j-Ri-Sst">
                                 <connections>
-                                    <segue destination="SkF-Ri-pcO" kind="unwind" identifier="DeleteToPlayerListSegue" unwindAction="unwindToPlayerListWithSender:" id="3Eh-7g-y5F"/>
+                                    <segue destination="SkF-Ri-pcO" kind="unwind" identifier="DeleteToPlayerListSegue" unwindAction="unwindToPlayerListWithSegue:" id="3Eh-7g-y5F"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

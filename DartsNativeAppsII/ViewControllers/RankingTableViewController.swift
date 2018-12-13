@@ -106,7 +106,7 @@ class RankingTableViewController: UITableViewController
     }
 
     //MARK: Actions
-    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
+    /*@IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
     {
         if let source = sender.source as? PlayerFormViewController, let player = source.player
         {
@@ -122,7 +122,7 @@ class RankingTableViewController: UITableViewController
             //but data is. Therefore we need to reload the data into the tableView
             //tableView.reloadData()
         }
-    }
+    }*/
     
     //wordt uitgevoerd na push on button ofzo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

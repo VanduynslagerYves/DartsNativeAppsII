@@ -132,13 +132,9 @@ class PlayerTableViewController: UITableViewController
                     players.insert(player, at: index)
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
-                else
+                if(segue.identifier == "DeleteToPlayerListSegue")
                 {
-                    if(segue.identifier == "DeleteToPlayerListSegue")
-                    {
-                        players.remove(at: index)
-                        
-                    }
+                    players.remove(at: index)
                 }
             }
         }
