@@ -112,42 +112,37 @@ class PlayerTableViewController: UITableViewController
     
     
     //MARK: Actions
-    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
+    @IBAction func unwindToPlayerList(segue: UIStoryboardSegue)
     {
-        if let source = sender.source as? PlayerFormViewController, let player = source.player
+        if let source = segue.source as? PlayerFormViewController, let player = source.player
         {
-            //index for the new row to be added
-            //let index = IndexPath(row: players.count, section: 0)
             //add the player to the list
             players.append(player)
-            //add a new row
-            //tableView.insertRows(at: [index], with: .automatic)
         }
         
-        if let source = sender.source as? PlayerEditViewController, let player = source.player
+        if let source = segue.source as? PlayerEditViewController, let player = source.player
         {
-                if let indexPath = tableView.indexPathForSelectedRow
+            if let indexPath = tableView.indexPathForSelectedRow
+            {
+                let index = indexPath.row
+                
+                if segue.identifier == "SaveToPlayerListSegue"
                 {
-                    let index = indexPath.row
-                
-                    if(source.performedAction == .update)
+                    players.remove(at: index)
+                    players.insert(player, at: index)
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+                else
+                {
+                    if(segue.identifier == "DeleteToPlayerListSegue")
                     {
                         players.remove(at: index)
-                        //tableView.deleteRows(at: [indexPath], with: .automatic)
-                
-                        players.insert(player, at: index)
-                        //tableView.insertRows(at: [indexPath], with: .automatic)
-                
-                        tableView.deselectRow(at: indexPath, animated: true)
-                    }
-                    if(source.performedAction == .delete)
-                    {
-                        players.remove(at: index)
-                        //tableView.deleteRows(at: [indexPath], with: .automatic)
+                        
                     }
                 }
+            }
         }
-     }
+    }
     // MARK: - Table view data source
     //Tells the table how many sections to display
     override func numberOfSections(in tableView: UITableView) -> Int

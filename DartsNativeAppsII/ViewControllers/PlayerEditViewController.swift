@@ -48,7 +48,7 @@ class PlayerEditViewController: UIViewController
             guard let firstName = txt_firstName.text, let lastName = txt_lastName.text
                 else { return }
             
-            performedAction = .update
+            //performedAction = .update
             
             player?.firstName = firstName
             player?.lastName = lastName
@@ -61,7 +61,7 @@ class PlayerEditViewController: UIViewController
         
         if let button = sender as? UIBarButtonItem, button === btn_delete
         {
-            performedAction = .delete
+            //performedAction = .delete
         }
     }
 }
