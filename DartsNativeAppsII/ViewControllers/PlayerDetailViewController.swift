@@ -47,17 +47,17 @@ class PlayerDetailViewController: UIViewController
     {
         super.prepare(for: segue, sender: sender)
         
-        if(segue.identifier == "EditSegue")
+        if(segue.identifier == "EditPlayerSegue")
         {
-            guard let playerEditViewController = segue.destination as? PlayerEditViewController else
+            guard let addEditPlayerViewController = segue.destination as? AddEditPlayerViewController else
             {
                 fatalError("Unknown controller: \(segue.destination)")
             }
             
-            playerEditViewController.player = self.player
+            addEditPlayerViewController.player = self.player
             
             if let selectedPlayer = player {
-                playerEditViewController.title = "Edit \(selectedPlayer.firstName)"
+                addEditPlayerViewController.title = "Edit \(selectedPlayer.firstName)"
                 
                 //Set back button to "player's details text" Instead of "Players"
                 let backItem = UIBarButtonItem()

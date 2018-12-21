@@ -14,21 +14,27 @@ class PlayerTableViewController: UITableViewController
     //Initialize empty Player array
     var players = [Player]()
     {
-        didSet{
-            //players = players.sorted(by:{ $0.firstName > $1.lastName})
-            players.sort() { $0.fullName < $1.fullName}
+        didSet
+        {
+            players.sort(){ $0.fullName.lowercased() < $1.fullName.lowercased()}
+            //reload the tableview data when players array is changed
+            //tableView.reloadData()
         }
     }
     
     private let playerInitError = "Player failed to initialize!"
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
         
         //reload tableView data when this view will appear.
+        //this needs to happen here and not in DidSet of players, or swiping for delete doesn't work
+        //probably a conflict with redrawing and realoading data
         tableView.reloadData()
     }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -110,35 +116,6 @@ class PlayerTableViewController: UITableViewController
         player9, player10, player11, player12, player13, player14, player15]
     }
     
-    
-    //MARK: Actions
-    @IBAction func unwindToPlayerList(segue: UIStoryboardSegue)
-    {
-        if let source = segue.source as? PlayerFormViewController, let player = source.player
-        {
-            //add the player to the list
-            players.append(player)
-        }
-        
-        if let source = segue.source as? PlayerEditViewController, let player = source.player
-        {
-            if let indexPath = tableView.indexPathForSelectedRow
-            {
-                let index = indexPath.row
-                
-                if segue.identifier == "UpdateToPlayerListSegue"
-                {
-                    players.remove(at: index)
-                    players.insert(player, at: index)
-                    tableView.deselectRow(at: indexPath, animated: true)
-                }
-                if(segue.identifier == "DeleteToPlayerListSegue")
-                {
-                    players.remove(at: index)
-                }
-            }
-        }
-    }
     // MARK: - Table view data source
     //Tells the table how many sections to display
     override func numberOfSections(in tableView: UITableView) -> Int
@@ -186,11 +163,11 @@ class PlayerTableViewController: UITableViewController
     //delegate method: called when user taps row
     //instead of using storyboard to create a segue,
     //you can use a programmed segue here to navigate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let p = players[indexPath.row]
         print(p)
-    }
+    }*/
     
     //Deleting a player
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
@@ -265,27 +242,87 @@ class PlayerTableViewController: UITableViewController
     {
         super.prepare(for: segue, sender: sender)
         
-        if (segue.identifier == "EditSegue")
+        //Activates when we click a cell in the playerslist
+        if (segue.identifier == "EditPlayerSegue")
         {
-            guard let playerEditViewController = segue.destination as? PlayerEditViewController else
+            /**
+             We need to first access the UINavigationController to get to the
+             AddEditPlayerTableViewController. Apple course forgets to mention this,
+             just like they forgot the headphone jack
+            */
+            let navigation = segue.destination as! UINavigationController
+            
+            
+            let indexPath = tableView.indexPathForSelectedRow!
+            let player = players[indexPath.row]
+            guard let addEditPlayerTableViewController = navigation.topViewController as? AddEditPlayerViewController else
             {
                 fatalError("Unknown controller: \(segue.destination)")
             }
-            
-            guard let selectedPlayerCell = sender as? PlayerTableViewCell else
-            {
-                fatalError("Unexpected sender: \(String(describing: sender))")
-            }
-            
-            guard let indexPath = tableView.indexPath(for: selectedPlayerCell) else
-            {
-                fatalError("The selected cell is not being displayed by the table")
-            }
-            
-            let selectedPlayer = players[indexPath.row]
-            playerEditViewController.player = selectedPlayer
-            
-            playerEditViewController.title = "Edit \(selectedPlayer.firstName)"
+            addEditPlayerTableViewController.player = player
+            addEditPlayerTableViewController.title = "Edit \(player.firstName)"
+            addEditPlayerTableViewController.btn_delete.isEnabled = true
         }
     }
+    
+    @IBAction func unwindToPlayerList(segue: UIStoryboardSegue)
+    {
+        let source = segue.source as! AddEditPlayerViewController
+        
+        if segue.identifier == "saveUnwind"
+        {
+            //AddEditPlayerViewController has a Player
+            if let player = source.player
+            {
+                //the player was edited
+                if let indexPath = tableView.indexPathForSelectedRow
+                {
+                    players[indexPath.row] = player
+                    //tableView.reloadRows(at: [indexPath], with: .none)
+                }
+                //the player is a new player
+                else
+                {
+                    //let newIndexPath = IndexPath(row: players.count, section: 0)
+                    players.append(player)
+                    //tableView.insertRows(at: [newIndexPath], with: .automatic)
+                }
+            }
+        }
+        if segue.identifier == "deleteUnwind"
+        {
+            if let indexPath = tableView.indexPathForSelectedRow
+            {
+                players.remove(at: indexPath.row)
+            }
+        }
+    }
+    /*@IBAction func unwindToPlayerList(segue: UIStoryboardSegue)
+    {
+        if let source = segue.source as? PlayerFormViewController, let player = source.player
+        {
+            //add the player to the list
+            players.append(player)
+        }
+        
+        if let source = segue.source as? PlayerEditViewController, let player = source.player
+        {
+            if let indexPath = tableView.indexPathForSelectedRow
+            {
+                let index = indexPath.row
+                
+                //UpdateToPlayerListSegue
+                if segue.identifier == "saveUnwind"
+                {
+                    players.remove(at: index)
+                    players.insert(player, at: index)
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+                if(segue.identifier == "DeleteToPlayerListSegue")
+                {
+                    players.remove(at: index)
+                }
+            }
+        }
+    }*/
 }
