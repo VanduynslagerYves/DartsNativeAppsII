@@ -8,23 +8,27 @@
 
 import UIKit
 
-class RankingTableViewCell: UITableViewCell {
-
+class RankingTableViewCell: UITableViewCell
+{
+    //MARK: - Outlets
     @IBOutlet weak var lbl_rank: UILabel!
     @IBOutlet weak var lbl_score: UILabel!
     @IBOutlet weak var lbl_name: UILabel!
     
-    override func awakeFromNib() {
+    //MARK: - Cell setup
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
+    //MARK: - Other
     func update(with player: Player, rank row: Int)
     {
         lbl_rank.text = "\(row + 1)"

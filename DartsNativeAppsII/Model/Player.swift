@@ -22,18 +22,23 @@ class Player: ProtoPlayer, CustomStringConvertible, Comparable, Equatable, Codab
     var score: Int
     var notes: String?
     
-    //MARK: Computed property
+    //MARK: Computed properties
     var fullName : String
     {
         return "\(firstName) \(lastName)"
     }
-    //required for CustomStringConvertible (toString in Java)
+    
+    //Required for CustomStringConvertible (toString in Java)
     var description: String
     {
         return "Player(firstName: \(firstName), lastName: \(lastName), score: \(score), fullName: \(fullName)"
     }
     
     //MARK: Initialization
+    /// - parameter first: first name of the player
+    /// - parameter last: last name of the player
+    /// - parameter score: score of the player
+    /// - parameter notes: notes for the player
     init?(firstName first: String, lastName last: String, _ score: Int, _ notes: String?)
     {
         //firstname and lastname must have values
@@ -48,48 +53,24 @@ class Player: ProtoPlayer, CustomStringConvertible, Comparable, Equatable, Codab
     }
     
     //MARK: Equatable
+    /**
+     Checks if two players are the same
+     */
+    /// - parameter player1: player to equate
+    /// - parameter player2: player to equate
     static func == (player1: Player, player2: Player) -> Bool
     {
         return player1.firstName == player2.firstName && player1.lastName == player2.lastName && player1.score == player2.score && player1.notes == player2.notes
     }
     
     //MARK: Comparable
-    //used to sort players on score
+    /**
+     Used to sort players based on score
+     */
+    /// - parameter lhs: player to compare
+    /// - parameter rhs: player to compare
     static func < (lhs: Player, rhs: Player) -> Bool
     {
         return lhs.score < rhs.score
     }
-    
-    //MARK: Persistence
-    /*static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("players").appendingPathExtension("plist")
-    
-    //Gets the playerlist from disk
-    static func loadPlayers() -> [Player]? {
-        guard let savedPlayers = try? Data(contentsOf: ArchiveURL) else { return nil }
-        
-        let propertyListDecoder = PropertyListDecoder()
-        
-        return try? propertyListDecoder.decode(Array<Player>.self, from: savedPlayers)
-    }
-    
-    //Saves the playerlist to disk
-    static func savePlayers(_ players: [Player])
-    {
-        let propertyListEncoder = PropertyListEncoder()
-        let playersList = try? propertyListEncoder.encode(players)
-        try? playersList?.write(to: ArchiveURL, options: .noFileProtection)
-    }*/
-    //MARK: Codable
-    //Code below is only needed if the model declares properties that do not
-    //conform to the Codable protocol
-    /*init(from: Decoder)
-    {
-        
-    }
-    func encode(to: Encoder)
-    {
-        
-    }*/
 }

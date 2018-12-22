@@ -125,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				F2D0619721CE654100CCDC0A /* Persistence */,
-				F242D15321AD99E2001C1A66 /* Settings */,
 				F22637302198842C00981385 /* ViewControllers */,
 				F226372F2198841000981385 /* Views */,
 				F226372D219883FA00981385 /* Model */,
@@ -187,13 +186,6 @@
 				F2D5751121CD14F30010BBB4 /* AddEditPlayerViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		F242D15321AD99E2001C1A66 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		F2D0619721CE654100CCDC0A /* Persistence */ = {

@@ -9,19 +9,24 @@
 import UIKit
 
 class PlayerTableViewCell: UITableViewCell
-{    
+{
+    //MARK: - Outlets
     @IBOutlet weak var lbl_name: UILabel!
-    override func awakeFromNib() {
+    
+    //MARK: - Cell setup
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
     }
     
+    //MARK: - Other
     func update(with player: Player)
     {
         lbl_name.text = player.fullName

@@ -10,20 +10,22 @@ import os.log
 
 class RankingTableViewController: UITableViewController
 {
-    //MARK: Properties
+    //MARK: - Properties
     //Initialize empty Player array
     var players = [Player]() {
-        didSet{
+        didSet{ //when players array is changed: sort on name
             players = players.sorted(by: >)
         }
     }
     
     internal let playerInitError = "Player failed to initialize!"
     
+    //MARK: - Lifecycle functions
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         
+        //check if there are saved players
         if let savedPlayers = PlayerArchive.loadPlayers()
         {
             players = savedPlayers
@@ -39,32 +41,21 @@ class RankingTableViewController: UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        //check if there are saved players
-        
-        
     }
     
-    /*
-     initialize players
-     */
-    private func loadSamplePlayers()
-    {
-        guard let player1 = Player(firstName: "Bert", lastName: "Vanrotsbakker", 15, "a short description") else {
-            os_log("player init failure on player1", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        
-        players += [player1]
-    }
 
-    // MARK: - Table view data source
-    //Tells the table how many sections to display
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    //MARK: - Table view & data source setup
+    /**
+     Tells the table how many sections to display
+     */
+    override func numberOfSections(in tableView: UITableView) -> Int
+    {
         return 1
     }
 
-    //Tells the table how many rows to display in a section
+    /**
+     Tells the table how many rows to display in a section
+     */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if section == 0
@@ -77,7 +68,9 @@ class RankingTableViewController: UITableViewController
         }
     }
 
-    //Sets up one cell
+    /**
+     Sets up one cell
+     */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         //1. Fetch correct cell type by dequeueing a cell
@@ -98,11 +91,12 @@ class RankingTableViewController: UITableViewController
         return cell
     }
     
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         super.prepare(for: segue, sender: sender)
         
-        //Activates when we click a cell in the playerslist
+        //Activates when we click a cell in the ranking list
         if (segue.identifier == "EditScoreSegue")
         {
             /**
@@ -111,7 +105,6 @@ class RankingTableViewController: UITableViewController
              just like they forgot the headphone jack
              */
             let navigation = segue.destination as! UINavigationController
-            
             
             let indexPath = tableView.indexPathForSelectedRow!
             let player = players[indexPath.row]
@@ -129,17 +122,30 @@ class RankingTableViewController: UITableViewController
         
         if segue.identifier == "saveUnwind"
         {
-            //AddEditPlayerViewController has a Player
+            //Check if EditPlayerScoreController has a Player
             if let player = source.player
             {
                 //the player was edited
                 if let indexPath = tableView.indexPathForSelectedRow
                 {
                     players[indexPath.row] = player
-                    //tableView.reloadRows(at: [indexPath], with: .none)
                 }
             }
         }
         PlayerArchive.savePlayers(players)
+    }
+    
+    //MARK: - Other
+    /**
+     Initialize sample player(s)
+     */
+    private func loadSamplePlayers()
+    {
+        guard let player1 = Player(firstName: "Bert", lastName: "Vanrotsbakker", 15, "a short description") else {
+            os_log("player init failure on player1", log: OSLog.default, type: .debug)
+            fatalError(playerInitError)
+        }
+        
+        players += [player1]
     }
 }

@@ -14,7 +14,9 @@ class PlayerArchive
  
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("players").appendingPathExtension("plist")
  
-    //Gets the playerlist from disk
+    /**
+     Gets the playerlist from disk
+     */
     static func loadPlayers() -> [Player]?
     {
         guard let savedPlayers = try? Data(contentsOf: ArchiveURL) else { return nil }
@@ -24,7 +26,10 @@ class PlayerArchive
         return try? propertyListDecoder.decode(Array<Player>.self, from: savedPlayers)
     }
  
-    //Saves the playerlist to disk
+    /**
+     Saves the playerlist to disk
+     */
+    /// - parameter players: the array of players that needs to be saved
     static func savePlayers(_ players: [Player])
     {
         let propertyListEncoder = PropertyListEncoder()
