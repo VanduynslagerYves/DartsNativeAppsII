@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class AddEditPlayerViewController: UITableViewController
 {
@@ -71,6 +72,7 @@ class AddEditPlayerViewController: UITableViewController
         //Check if unwind was triggered by save button
         guard segue.identifier == "saveUnwind" else
         {
+            os_log("Unknown segue", log: OSLog.default, type: .error)
             return
         }
         

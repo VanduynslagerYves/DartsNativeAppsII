@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class EditPlayerScoreViewController: UITableViewController
 {
@@ -25,6 +26,7 @@ class EditPlayerScoreViewController: UITableViewController
         //Check if player has a reference
         guard let selectedPlayer = player else
         {
+            os_log("Player not found", log: OSLog.default, type: .error)
             fatalError("Player not found")
         }
         
@@ -32,8 +34,10 @@ class EditPlayerScoreViewController: UITableViewController
         lbl_fullname.text = selectedPlayer.fullName
         lbl_score.text = "\(selectedPlayer.score)"
         lbl_notes.text = selectedPlayer.notes
+        os_log("All labels updated in viewWillAppear", log: OSLog.default, type: .debug)
         
         playerScoreModifier = PlayerScoreModifier(for: player)
+        os_log("ScoreModifier initialized", log: OSLog.default, type: .debug)
     }
     
     override func viewDidLoad()
@@ -62,16 +66,20 @@ class EditPlayerScoreViewController: UITableViewController
         do
         {
             try playerScoreModifier?.decreaseScoreByOne()
-            lbl_score.text = "\(player!.score)"
         }
         catch ScoreModifierError.lessThanZero //User tried to adjust score to below 0
         {
             //TODO: show in view
-            print("less than zero error")
+            os_log("Less than zero exception", log: OSLog.default, type: .debug)
+            print("Less than zero exception")
         }
         catch {
-            print("unknown error")
+            print("Unknown error")
         }
+        
+        os_log("Score decreased with 1", log: OSLog.default, type: .debug)
+        lbl_score.text = "\(player!.score)"
+        os_log("Score label updated", log: OSLog.default, type: .debug)
     }
     
     /**
@@ -80,7 +88,9 @@ class EditPlayerScoreViewController: UITableViewController
     @IBAction func increaseByOne(_ sender: UIButton)
     {
         playerScoreModifier?.increaseScoreByOne()
+        os_log("Score increased with 1", log: OSLog.default, type: .debug)
         lbl_score.text = "\(player!.score)"
+        os_log("Score label updated", log: OSLog.default, type: .debug)
     }
     
     //MARK: - Navigation
@@ -90,6 +100,7 @@ class EditPlayerScoreViewController: UITableViewController
         
         guard segue.identifier == "saveUnwind" else
         {
+            os_log("Unknown segue", log: OSLog.default, type: .error)
             return
         }
     }

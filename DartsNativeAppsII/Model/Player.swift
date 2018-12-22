@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import os.log
 
 //Protocols: interfaces in java
 //CustomStringConvertible: toString in java
@@ -42,14 +43,24 @@ class Player: ProtoPlayer, CustomStringConvertible, Comparable, Equatable, Codab
     init?(firstName first: String, lastName last: String, _ score: Int, _ notes: String?)
     {
         //firstname and lastname must have values
-        guard !first.isEmpty && !last.isEmpty else { return nil }
+        guard !first.isEmpty && !last.isEmpty else
+        {
+            os_log("Tried to initialize player with empty first or last name", log: OSLog.default, type: .error)
+            return nil
+        }
         //score can never be lower than 0
-        guard score >= 0 else { return nil }
+        guard score >= 0 else
+        {
+            os_log("Tried to initialize player with score less than 0", log: OSLog.default, type: .error)
+            return nil
+        }
         
         self.firstName = first
         self.lastName = last
         self.score = score
         self.notes = notes
+        
+        os_log("Player was initialized", log: OSLog.default, type: .debug)
     }
     
     //MARK: Equatable

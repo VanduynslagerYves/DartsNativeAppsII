@@ -7,6 +7,8 @@
 //
 
 import Foundation
-enum ScoreModifierError: Error {
+
+enum ScoreModifierError: Error
+{
     case lessThanZero
 }

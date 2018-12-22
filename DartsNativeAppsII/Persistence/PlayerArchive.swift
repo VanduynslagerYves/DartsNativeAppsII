@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 class PlayerArchive
 {
@@ -19,7 +20,11 @@ class PlayerArchive
      */
     static func loadPlayers() -> [Player]?
     {
-        guard let savedPlayers = try? Data(contentsOf: ArchiveURL) else { return nil }
+        guard let savedPlayers = try? Data(contentsOf: ArchiveURL) else
+        {
+            os_log("No players in archive", log: OSLog.default, type: .debug)
+            return nil
+        }
  
         let propertyListDecoder = PropertyListDecoder()
  
@@ -33,7 +38,10 @@ class PlayerArchive
     static func savePlayers(_ players: [Player])
     {
         let propertyListEncoder = PropertyListEncoder()
+        
         let playersList = try? propertyListEncoder.encode(players)
         try? playersList?.write(to: ArchiveURL, options: .noFileProtection)
+        
+        os_log("Players written to disk", log: OSLog.default, type: .debug)
     }
 }

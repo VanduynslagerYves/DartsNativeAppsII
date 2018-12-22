@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol ProtoPlayer{
+protocol ProtoPlayer
+{
+    //MARK: - Properties
     var firstName: String {get}
     var lastName: String {get}
     var score: Int {get}
