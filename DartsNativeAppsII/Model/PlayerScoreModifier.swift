@@ -11,13 +11,13 @@ class PlayerScoreModifier
 {
     let player: Player
     
-    init?(player: Player?)
+    init?(for player: Player?)
     {
         guard let p = player else { return nil }
         self.player = p
     }
     
-    func addScoreByOne()
+    func increaseScoreByOne()
     {
         player.score += 1
     }

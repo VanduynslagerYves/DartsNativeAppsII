@@ -17,8 +17,6 @@ class PlayerTableViewController: UITableViewController
         didSet
         {
             players.sort(){ $0.fullName.lowercased() < $1.fullName.lowercased()}
-            //reload the tableview data when players array is changed
-            //tableView.reloadData()
         }
     }
     
@@ -29,91 +27,43 @@ class PlayerTableViewController: UITableViewController
     {
         super.viewWillAppear(animated)
         
+        if let savedPlayers = PlayerArchive.loadPlayers()
+        {
+            players = savedPlayers
+            /*if players.count == 0
+            {
+                loadSamplePlayers()
+            }*/
+        }
         //reload tableView data when this view will appear.
         //this needs to happen here and not in DidSet of players, or swiping for delete doesn't work
-        //probably a conflict with redrawing and realoading data
+        //probably a conflict with redrawing and reloading data
         tableView.reloadData()
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        loadPlayers()
+        
+        //check if there are saved players
+        
         
         //editButtonItem is an already-defined button that switches the table view's
         //editing on and off
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
+    
     /*
      initialize players
      */
-    private func loadPlayers()
+    private func loadSamplePlayers()
     {
-        guard let player1 = Player(firstName: "Bert", lastName: "Vanrotsbakker", 15) else {
+        guard let player1 = Player(firstName: "Bert", lastName: "Vanrotsbakker", 15, "a short description") else {
             os_log("player init failure on player1", log: OSLog.default, type: .debug)
             fatalError(playerInitError)
         }
-        guard let player2 = Player(firstName: "Noatn", lastName: "Caring", 6) else {
-            os_log("player init failure on player2", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player3 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player4 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player5 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player6 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player7 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player8 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player9 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player10 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player11 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player12 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player13 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player14 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        guard let player15 = Player(firstName: "Ernie", lastName: "Sesam", 0) else {
-            os_log("player init failure on player3", log: OSLog.default, type: .debug)
-            fatalError(playerInitError)
-        }
-        
-        
-        players += [player1, player2, player3, player4, player5, player6, player7, player8,
-        player9, player10, player11, player12, player13, player14, player15]
+        players += [player1]
     }
     
     // MARK: - Table view data source
@@ -160,28 +110,15 @@ class PlayerTableViewController: UITableViewController
         return cell
     }
     
-    //delegate method: called when user taps row
-    //instead of using storyboard to create a segue,
-    //you can use a programmed segue here to navigate
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        let p = players[indexPath.row]
-        print(p)
-    }*/
-    
-    //Deleting a player
+    //MARK: Delete a player
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
     {
         if(editingStyle == .delete)
         {
-            //tableView.beginUpdates()
             players.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            //tableView.endUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
             
-            /*
-             tableView.reloadData() -> this does not update the view right away, only after Done is pressed
-             */
+            PlayerArchive.savePlayers(players)
         }
     }
     
@@ -193,51 +130,6 @@ class PlayerTableViewController: UITableViewController
             return .delete
     }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         super.prepare(for: segue, sender: sender)
@@ -296,33 +188,6 @@ class PlayerTableViewController: UITableViewController
                 players.remove(at: indexPath.row)
             }
         }
+        PlayerArchive.savePlayers(players)
     }
-    /*@IBAction func unwindToPlayerList(segue: UIStoryboardSegue)
-    {
-        if let source = segue.source as? PlayerFormViewController, let player = source.player
-        {
-            //add the player to the list
-            players.append(player)
-        }
-        
-        if let source = segue.source as? PlayerEditViewController, let player = source.player
-        {
-            if let indexPath = tableView.indexPathForSelectedRow
-            {
-                let index = indexPath.row
-                
-                //UpdateToPlayerListSegue
-                if segue.identifier == "saveUnwind"
-                {
-                    players.remove(at: index)
-                    players.insert(player, at: index)
-                    tableView.deselectRow(at: indexPath, animated: true)
-                }
-                if(segue.identifier == "DeleteToPlayerListSegue")
-                {
-                    players.remove(at: index)
-                }
-            }
-        }
-    }*/
 }
